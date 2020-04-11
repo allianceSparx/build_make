@@ -55,7 +55,7 @@ if [ -n "$BUILD_THUMBPRINT" ] ; then
   echo "ro.build.thumbprint=$BUILD_THUMBPRINT"
 fi
 
-# Carbon properties
-echo "ro.carbon.device=$CARBON_DEVICE"
+# Tipsy properties
+echo "ro.tipsy.device=$TIPSY_DEVICE"
 
 echo "# end build properties"

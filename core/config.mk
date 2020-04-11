@@ -233,8 +233,8 @@ include $(BUILD_SYSTEM)/envsetup.mk
 # See envsetup.mk for a description of SCAN_EXCLUDE_DIRS
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
-ifneq ($(CARBON_BUILD),)
-include vendor/carbon/config/BoardConfigCarbon.mk
+ifneq ($(TIPSY_BUILD),)
+include vendor/tipsy/config/BoardConfigTipsy.mk
 endif
 
 # The build system exposes several variables for where to find the kernel
@@ -1173,7 +1173,7 @@ dont_bother_goals := out \
     vbmetaimage-nodeps \
     product-graph dump-products
 
-ifneq ($(CARBON_BUILD),)
+ifneq ($(TIPSY_BUILD),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
 $(eval include device/carbon/sepolicy/common/sepolicy.mk)

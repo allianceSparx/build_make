@@ -147,13 +147,13 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^carbon_") ; then
-        CARBON_BUILD=$(echo -n $1 | sed -e 's/^carbon_//g')
-        export BUILD_NUMBER=$((date +%s%N ; echo $CARBON_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
+    if (echo -n $1 | grep -q -e "^tipsy_") ; then
+        TIPSY_BUILD=$(echo -n $1 | sed -e 's/^tipsy_//g')
+        export BUILD_NUMBER=$((date +%s%N ; echo $TIPSY_BUILD; hostname) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10)
     else
-        CARBON_BUILD=
+        TIPSY_BUILD=
     fi
-    export CARBON_BUILD
+    export TIPSY_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \
@@ -509,7 +509,7 @@ function addcompletions()
       system/core/adb/adb.bash
       system/core/fastboot/fastboot.bash
       tools/asuite/asuite.sh
-      vendor/carbon/bash_completion
+      vendor/tipsy/bash_completion
     )
     # Completion can be disabled selectively to allow users to use non-standard completion.
     # e.g.
